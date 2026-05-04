@@ -5,294 +5,331 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Galina Pass</title>
 
-    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@1,500&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
-      html {
-        scroll-behavior: smooth;
+      html { scroll-behavior: smooth; }
+      body { font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .signature { font-family: "Playfair Display", serif; }
+
+      .cover-mark {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6%;
+      }
+
+      .cover-square {
+        position: relative;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        background: #f4a6bd;
+      }
+
+      .cover-square-left .olive {
+        position: absolute;
+        inset: 0;
+        background: #a99d00;
+        clip-path: polygon(0 0, 76% 0, 34% 100%, 0 100%);
+      }
+
+      .cover-square-right {
+        background: #5bcb6b;
+      }
+
+      .cover-square-right .burgundy {
+        position: absolute;
+        inset: 0;
+        background: #7b0008;
+        clip-path: polygon(0 0, 100% 0, 100% 60%, 0 40%);
+      }
+
+      .focusable:focus-visible {
+        outline: 2px solid #7b0008;
+        outline-offset: 4px;
       }
     </style>
   </head>
 
-  <body class="bg-white text-neutral-900 antialiased selection:bg-black selection:text-white">
+  <body class="bg-[#f5dfc4] text-[#1b1614] antialiased selection:bg-[#7b0008] selection:text-white">
     <main class="min-h-screen">
-      <div class="mx-auto max-w-6xl px-6 sm:px-8">
-        <!-- Header -->
-        <header class="sticky top-0 z-50 -mx-6 sm:-mx-8 border-b border-neutral-200 bg-white/70 backdrop-blur">
-          <div class="mx-auto max-w-6xl px-6 sm:px-8 py-5 flex items-center justify-between">
-            <div class="flex items-baseline gap-3">
-              <span class="inline-flex h-7 w-7 items-center justify-center rounded-full border border-neutral-900 text-xs font-medium tracking-widest">
-                GP
-              </span>
-              <h1 class="text-lg font-semibold tracking-tight">Galina Pass</h1>
-            </div>
-            <nav class="flex items-center gap-5 text-sm">
-              <a class="hover:opacity-70" href="#gallery">Papers</a>
-              <a class="hover:opacity-70" href="#talks">Talks</a>
-              <a class="hover:opacity-70" href="#teaching">Teaching</a>
-              <a class="hover:opacity-70" href="#contact">Contact</a>
-              <a
-                class="ml-2 inline-flex items-center gap-2 rounded-full border border-neutral-300 px-3 py-1 hover:bg-neutral-50"
-                href="https://scholar.google.com/citations?user=P_Y2TCQAAAAJ&hl=en"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Google Scholar ↗
-              </a>
-            </nav>
-          </div>
-        </header>
+      <!-- Header -->
+      <header class="sticky top-0 z-50 border-b border-[#d99383]/50 bg-[#f5dfc4]/90 backdrop-blur">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
+          <a href="#top" class="focusable flex items-center gap-3">
+            <span class="cover-mark w-12" aria-hidden="true">
+              <span class="cover-square cover-square-left"><span class="olive"></span></span>
+              <span class="cover-square cover-square-right"><span class="burgundy"></span></span>
+            </span>
+            <span class="text-sm font-black uppercase tracking-[0.28em]">Galina Pass</span>
+          </a>
 
-        <!-- Hero -->
-        <section class="flex flex-col items-center justify-center py-16 md:py-24 text-center">
-          <h2 class="text-3xl md:text-5xl font-semibold tracking-tight">
-            Galina Pass
-          </h2>
-          <p class="mt-5 max-w-2xl text-base leading-relaxed text-neutral-600">
-            I am a researcher at QuSoft &amp; CWI. I study quantum algorithms and complexity, with a focus on space-efficient quantum algorithms, time–space tradeoffs, and quantum walks.
-            Previously I was a PhD student at the University of Amsterdam (KdVI &amp; QuSoft)
-            under the supervision of Stacey Jeffery and Michael Walter.
-          </p>
-
-          <div class="mt-8 flex flex-wrap justify-center gap-3 text-sm">
-            <span class="rounded-full border border-neutral-300 px-3 py-1">Quantum algorithms</span>
-            <span class="rounded-full border border-neutral-300 px-3 py-1">Space-bounded complexity</span>
-            <span class="rounded-full border border-neutral-300 px-3 py-1">Quantum walks</span>
-          </div>
-
-          <div class="mt-10">
-            <img
-              src="/IMG_profile.jpg"
-              alt="Galina Pass portrait"
-              class="mx-auto max-w-xs md:max-w-sm rounded-2xl border border-neutral-200 h-auto"
-            />
-            <div class="mt-3 text-xs text-neutral-500">
-              Amsterdam, NL · galina dot pass at cwi dot nl
-            </div>
-          </div>
-        </section>
-
-        <!-- Papers -->
-        <section id="gallery" class="py-8 md:py-12">
-          <div class="flex items-baseline justify-between">
-            <h3 class="text-xl md:text-2xl font-semibold tracking-tight">
-              Papers
-            </h3>
+          <nav class="hidden items-center gap-7 text-xs font-black uppercase tracking-[0.18em] md:flex">
+            <a class="focusable hover:text-[#7b0008] hover:underline underline-offset-4" href="#papers">Papers</a>
+            <a class="focusable hover:text-[#7b0008] hover:underline underline-offset-4" href="#talks">Talks</a>
+            <a class="focusable hover:text-[#7b0008] hover:underline underline-offset-4" href="#teaching">Teaching</a>
+            <a class="focusable hover:text-[#7b0008] hover:underline underline-offset-4" href="#contact">Contact</a>
             <a
-              class="text-sm hover:opacity-70"
+              class="focusable border border-[#1b1614] px-4 py-2 hover:bg-[#1b1614] hover:text-[#f5dfc4]"
               href="https://scholar.google.com/citations?user=P_Y2TCQAAAAJ&hl=en"
               target="_blank"
               rel="noreferrer"
-            >
-              View all on Scholar ↗
-            </a>
+            >Scholar ↗</a>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Mobile jump links -->
+      <nav class="border-b border-[#d99383]/50 bg-[#f5dfc4] px-5 py-3 text-[0.68rem] font-black uppercase tracking-[0.18em] sm:px-8 md:hidden">
+        <div class="mx-auto flex max-w-7xl gap-4 overflow-x-auto whitespace-nowrap pb-1">
+          <a class="focusable hover:text-[#7b0008]" href="#papers">Papers</a>
+          <a class="focusable hover:text-[#7b0008]" href="#talks">Talks</a>
+          <a class="focusable hover:text-[#7b0008]" href="#teaching">Teaching</a>
+          <a class="focusable hover:text-[#7b0008]" href="#contact">Contact</a>
+          <a class="focusable hover:text-[#7b0008]" href="https://scholar.google.com/citations?user=P_Y2TCQAAAAJ&hl=en" target="_blank" rel="noreferrer">Scholar ↗</a>
+        </div>
+      </nav>
+
+      <!-- Hero -->
+      <section id="top" class="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-12 md:py-24">
+        <aside class="hidden md:col-span-1 md:block">
+          <div class="sticky top-28 flex origin-top-left rotate-90 items-center gap-5 whitespace-nowrap text-xs font-black uppercase tracking-[0.22em] text-[#d99383]">
+            <span>Quantum algorithms</span>
+            <span>Space-bounded complexity</span>
+            <span>Quantum walks</span>
           </div>
+        </aside>
 
-          <ul class="mt-6 space-y-6">
-            
-            <li>
-              <h4 class="font-medium leading-snug">
-                <a
-                  class="underline-offset-2 hover:underline"
-                  href="https://arxiv.org/abs/2510.08403"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  A Quantum Time-Space Tradeoff for Directed st-Connectivity
-                </a>
-              </h4>
-              <p class="mt-1 text-sm text-neutral-600">
-                Stacey Jeffery, Galina Pass (QIP 2026, ICALP 2026)
-              </p>
-            </li>
-            
-            <li>
-              <h4 class="font-medium leading-snug">
-                <a
-                  class="underline-offset-2 hover:underline"
-                  href="https://arxiv.org/abs/2401.08355"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Multidimensional Quantum Walks, Recursion, and Quantum Divide &amp; Conquer
-                </a>
-              </h4>
-              <p class="mt-1 text-sm text-neutral-600">
-                Stacey Jeffery, Galina Pass (STACS 2025)
-              </p>
-            </li>
-
-            <li>
-              <h4 class="font-medium leading-snug">
-                <a
-                  class="underline-offset-2 hover:underline"
-                  href="https://arxiv.org/abs/2212.00094"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  (No) Quantum Space-Time Tradeoff for USTCON
-                </a>
-              </h4>
-              <p class="mt-1 text-sm text-neutral-600">
-                Simon Apers, Stacey Jeffery, Galina Pass, Michael Walter (ESA 2023)
-              </p>
-            </li>
-          </ul>
-        </section>
-
-        <!-- Selected Talks -->
-        <section id="talks" class="py-12">
-          <h3 class="text-xl md:text-2xl font-semibold tracking-tight">Selected Talks</h3>
-
-          <div class="mt-6 divide-y divide-neutral-200 border-y border-neutral-200">
-
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-3 py-4">
-              <div class="md:col-span-2 text-sm text-neutral-500">Jan 2026</div>
-              <div class="md:col-span-10">
-                <div class="text-sm uppercase tracking-widest text-neutral-500">
-                  29th Annual Quantum Information Processing Conference 2026 (QIP 2026), Riga
-                </div>
-                <div class="font-medium">
-                    A Quantum Time-Space Tradeoff for Directed st-Connectivity
-                  </a>
-                </div>
-              </div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-3 py-4">
-              <div class="md:col-span-2 text-sm text-neutral-500">Mar 2025</div>
-              <div class="md:col-span-10">
-                <div class="text-sm uppercase tracking-widest text-neutral-500">
-                  42nd International Symposium on Theoretical Aspects of Computer Science (STACS 2025), Jena
-                </div>
-                <div class="font-medium">
-                    Multidimensional Quantum Walks, Recursion, and Quantum Divide &amp; Conquer
-                  </a>
-                </div>
-              </div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-3 py-4">
-              <div class="md:col-span-2 text-sm text-neutral-500">Sep 2023</div>
-              <div class="md:col-span-10">
-                <div class="text-sm uppercase tracking-widest text-neutral-500">
-                  European Symposium on Algorithms (ESA 2023), Amsterdam
-                </div>
-                <div class="font-medium">
-                    (No) Quantum Space-Time Tradeoff for USTCON
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-3 py-4">
-              <div class="md:col-span-2 text-sm text-neutral-500">Jun 2023</div>
-              <div class="md:col-span-10">
-                <div class="text-sm uppercase tracking-widest text-neutral-500">
-                  Quantum Computation &amp; Optimization Workshop (QOPT 2023), Berlin
-                </div>
-                <div class="font-medium">
-                    (No) Quantum Space-Time Tradeoff for USTCON
-                  </a>
-                </div>
-              </div>
-            </div>
-            </div>
-        </section>
-
-        <!-- Teaching -->
-        <section id="teaching" class="py-12">
-          <h3 class="text-xl md:text-2xl font-semibold tracking-tight">Teaching</h3>
-
-          <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <li class="rounded-2xl border border-neutral-200 p-4">
-              <div class="font-medium">Bachelor Thesis Supervision, Quantum Algorithms</div>
-              <div class="mt-1 text-sm text-neutral-500">
-                Jan–Jun 2025 · University of Amsterdam
-              </div>
-            </li>
-
-            <li class="rounded-2xl border border-neutral-200 p-4">
-              <div class="font-medium">Quantum Quest</div>
-              <div class="mt-1 text-sm text-neutral-500">
-                Nov-Dec 2023 · University of Amsterdam
-              </div>
-            </li>
-            
-            <li class="rounded-2xl border border-neutral-200 p-4">
-              <div class="font-medium">Information Theory</div>
-              <div class="mt-1 text-sm text-neutral-500">
-                Nov 2022 – Jan 2023 · University of Amsterdam
-              </div>
-            </li>
-
-            
-            <li class="rounded-2xl border border-neutral-200 p-4">
-              <div class="font-medium">Second-Year Project Supervision, Quantum Algorithms</div>
-              <div class="mt-1 text-sm text-neutral-500">
-                Feb-June 2022 · University of Amsterdam
-              </div>
-            </li>
-
-            
-            <li class="rounded-2xl border border-neutral-200 p-4">
-              <div class="font-medium">Quantum Computing</div>
-              <div class="mt-1 text-sm text-neutral-500">
-                Feb-June 2022 · University of Amsterdam
-              </div>
-            </li>
-            
-            
-            <li class="rounded-2xl border border-neutral-200 p-4">
-              <div class="font-medium">Introduction to Quantum Algorithms</div>
-              <div class="mt-1 text-sm text-neutral-500">
-                Feb-June 2021 · University of Tartu
-              </div>
-            </li>            
-            
-            <li class="rounded-2xl border border-neutral-200 p-4">
-              <div class="font-medium">Introduction to Quantum Computing</div>
-              <div class="mt-1 text-sm text-neutral-500">
-                Sep 2020 – Jan 2021 · University of Tartu
-              </div>
-            </li>
-
-                     
-            <li class="rounded-2xl border border-neutral-200 p-4">
-              <div class="font-medium">Design and Analysis of Algorithms</div>
-              <div class="mt-1 text-sm text-neutral-500">
-                Sep 2020 – Jan 2021 · University of Tartu
-              </div>
-            </li>
-            
-                     
-            <li class="rounded-2xl border border-neutral-200 p-4">
-              <div class="font-medium"> Introduction to Theoretical Computer Science</div>
-              <div class="mt-1 text-sm text-neutral-500">
-                Feb-June 2020 · University of Tartu
-              </div>
-            </li>
-            
-          </ul>
-        </section>
-
-        <!-- Footer -->
-        <footer id="contact" class="py-16">
-          <h3 class="text-2xl font-semibold tracking-tight">Let’s talk.</h3>
-          <p class="mt-3 max-w-prose text-neutral-600">
-            For collaborations, talks, or teaching, reach out by email.
+        <div class="md:col-span-7">
+          <p class="mb-5 text-xs font-black uppercase tracking-[0.28em] text-[#7b0008] md:text-[#d99383]">
+            Researcher at QuSoft &amp; CWI
           </p>
-          <div class="mt-6">
-              galina dot pass at cwi dot nl
-            </a>
+
+          <h1 class="max-w-4xl text-[clamp(3rem,8vw,7.5rem)] font-black uppercase leading-[0.88] tracking-[-0.07em] text-[#b85f55]">
+            Galina Pass
+          </h1>
+
+          <p class="mt-8 max-w-2xl text-lg font-semibold leading-relaxed text-[#443734]">
+            I am a researcher at QuSoft &amp; CWI. I study quantum algorithms and complexity, with a focus on space-efficient quantum algorithms, time–space tradeoffs, and quantum walks. Previously I was a PhD student at the University of Amsterdam (KdVI &amp; QuSoft) under the supervision of Stacey Jeffery and Michael Walter.
+          </p>
+
+          <div class="mt-10 flex flex-wrap gap-2 text-xs font-black uppercase tracking-[0.16em]">
+            <span class="border border-[#1b1614] bg-[#a99d00] px-4 py-3">Quantum algorithms</span>
+            <span class="border border-[#1b1614] bg-[#f4a6bd] px-4 py-3">Space-bounded complexity</span>
+            <span class="border border-[#1b1614] bg-[#5bcb6b] px-4 py-3">Quantum walks</span>
+          </div>
+        </div>
+
+        <div class="md:col-span-4 md:pt-16">
+          <div class="border border-[#1b1614] bg-[#f1caaa] p-4">
+            <img
+              src="/IMG_profile.jpg"
+              alt="Galina Pass portrait"
+              class="aspect-[4/5] w-full object-cover grayscale contrast-125"
+            />
+          </div>
+          <div class="mt-5 cover-mark w-32" aria-hidden="true">
+            <span class="cover-square cover-square-left"><span class="olive"></span></span>
+            <span class="cover-square cover-square-right"><span class="burgundy"></span></span>
+          </div>
+          <div class="mt-5 space-y-1 text-xs font-black uppercase tracking-[0.22em] text-[#d99383]">
+            <p>Amsterdam, NL</p>
+            <a class="focusable inline-block border border-transparent transition hover:-translate-y-1 hover:border-[#1b1614] hover:bg-[#7b0008] hover:text-[#f5dfc4] hover:no-underline hover:shadow-[4px_4px_0_#1b1614]" href="mailto:galina.pass@cwi.nl">galina.pass@cwi.nl</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Papers -->
+      <section id="papers" class="border-y border-[#d99383]/60 bg-[#f1caaa] py-20">
+        <div class="mx-auto max-w-7xl px-5 sm:px-8">
+          <div class="mb-12 grid gap-6 md:grid-cols-12 md:items-center">
+            <div class="md:col-span-8">
+              <p class="text-xs font-black uppercase tracking-[0.28em] text-[#7b0008]">Selected work</p>
+              <h2 class="mt-2 text-[clamp(4.25rem,12vw,8rem)] font-black uppercase leading-[0.82] tracking-[-0.075em] text-[#1b1614]">Papers</h2>
+            </div>
+            <div class="md:col-span-4 md:text-right">
+              <a
+                class="focusable inline-block border border-[#1b1614] bg-[#f5dfc4] px-5 py-3 text-xs font-black uppercase tracking-[0.18em] hover:bg-[#1b1614] hover:text-[#f5dfc4]"
+                href="https://scholar.google.com/citations?user=P_Y2TCQAAAAJ&hl=en"
+                target="_blank"
+                rel="noreferrer"
+              >View all on Scholar ↗</a>
+            </div>
           </div>
 
-          <div class="mt-12 border-t border-neutral-200 pt-6 text-xs text-neutral-500 flex justify-between">
-            <span>© 2026 Galina Pass</span>
+          <div class="grid border-t border-[#1b1614]">
+            <article class="grid gap-4 border-b border-[#1b1614] py-7 md:grid-cols-12">
+              <div class="text-xs font-black uppercase tracking-[0.22em] text-[#7b0008] md:col-span-3">QIP 2026 · ICALP 2026</div>
+              <div class="md:col-span-9">
+                <h3 class="text-3xl font-black leading-tight tracking-[-0.04em] md:text-4xl">
+                  <a class="focusable inline-block transition hover:-translate-y-1 hover:text-[#7b0008] hover:shadow-[6px_6px_0_#1b1614]" href="https://arxiv.org/abs/2510.08403" target="_blank" rel="noreferrer">A Quantum Time-Space Tradeoff for Directed st-Connectivity</a>
+                </h3>
+                <p class="mt-3 font-bold text-[#6d5752]">Stacey Jeffery, Galina Pass</p>
+                
+                <div class="mt-4 flex flex-wrap gap-2 text-[0.68rem] font-black uppercase tracking-[0.14em]">
+                  <a class="focusable border border-[#1b1614] px-3 py-2 hover:bg-[#1b1614] hover:text-[#f5dfc4]" href="https://arxiv.org/abs/2510.08403" target="_blank" rel="noreferrer">arXiv ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="grid gap-4 border-b border-[#1b1614] py-7 md:grid-cols-12">
+              <div class="text-xs font-black uppercase tracking-[0.22em] text-[#7b0008] md:col-span-3">STACS 2025</div>
+              <div class="md:col-span-9">
+                <h3 class="text-3xl font-black leading-tight tracking-[-0.04em] md:text-4xl">
+                  <a class="focusable inline-block transition hover:-translate-y-1 hover:text-[#7b0008] hover:shadow-[6px_6px_0_#1b1614]" href="https://arxiv.org/abs/2401.08355" target="_blank" rel="noreferrer">Multidimensional Quantum Walks, Recursion, and Quantum Divide &amp; Conquer</a>
+                </h3>
+                <p class="mt-3 font-bold text-[#6d5752]">Stacey Jeffery, Galina Pass</p>
+                
+                <div class="mt-4 flex flex-wrap gap-2 text-[0.68rem] font-black uppercase tracking-[0.14em]">
+                  <a class="focusable border border-[#1b1614] px-3 py-2 hover:bg-[#1b1614] hover:text-[#f5dfc4]" href="https://arxiv.org/abs/2401.08355" target="_blank" rel="noreferrer">arXiv ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="grid gap-4 border-b border-[#1b1614] py-7 md:grid-cols-12">
+              <div class="text-xs font-black uppercase tracking-[0.22em] text-[#7b0008] md:col-span-3">ESA 2023</div>
+              <div class="md:col-span-9">
+                <h3 class="text-3xl font-black leading-tight tracking-[-0.04em] md:text-4xl">
+                  <a class="focusable inline-block transition hover:-translate-y-1 hover:text-[#7b0008] hover:shadow-[6px_6px_0_#1b1614]" href="https://arxiv.org/abs/2212.00094" target="_blank" rel="noreferrer">(No) Quantum Space-Time Tradeoff for USTCON</a>
+                </h3>
+                <p class="mt-3 font-bold text-[#6d5752]">Simon Apers, Stacey Jeffery, Galina Pass, Michael Walter</p>
+                
+                <div class="mt-4 flex flex-wrap gap-2 text-[0.68rem] font-black uppercase tracking-[0.14em]">
+                  <a class="focusable border border-[#1b1614] px-3 py-2 hover:bg-[#1b1614] hover:text-[#f5dfc4]" href="https://arxiv.org/abs/2212.00094" target="_blank" rel="noreferrer">arXiv ↗</a>
+                </div>
+              </div>
+            </article>
           </div>
-        </footer>
-      </div>
+        </div>
+      </section>
+
+      <!-- Talks -->
+      <section id="talks" class="bg-[#f5dfc4] py-20">
+        <div class="mx-auto max-w-7xl px-5 sm:px-8">
+          <div class="grid gap-10 md:grid-cols-12">
+            <div class="md:col-span-4">
+              <p class="text-xs font-black uppercase tracking-[0.28em] text-[#7b0008]">Conferences & workshops</p>
+              <h2 class="mt-2 text-[clamp(3.4rem,9vw,8rem)] font-black uppercase leading-[0.82] tracking-[-0.075em] text-[#d99383]">Selected Talks</h2>
+            </div>
+
+            <div class="md:col-span-8">
+              <div class="grid border-t border-[#1b1614]">
+                <div class="grid gap-4 border-b border-[#1b1614] py-6 md:grid-cols-12">
+                  <div class="font-black text-[#7b0008] md:col-span-2">Jan 2026</div>
+                  <div class="md:col-span-10">
+                    <div class="text-xs font-black uppercase tracking-[0.18em] text-[#d99383]">29th Annual Quantum Information Processing Conference 2026 (QIP 2026), Riga</div>
+                    <div class="mt-2 text-2xl font-black tracking-[-0.03em]">A Quantum Time-Space Tradeoff for Directed st-Connectivity</div>
+                  </div>
+                </div>
+
+                <div class="grid gap-4 border-b border-[#1b1614] py-6 md:grid-cols-12">
+                  <div class="font-black text-[#7b0008] md:col-span-2">Mar 2025</div>
+                  <div class="md:col-span-10">
+                    <div class="text-xs font-black uppercase tracking-[0.18em] text-[#d99383]">42nd International Symposium on Theoretical Aspects of Computer Science (STACS 2025), Jena</div>
+                    <div class="mt-2 text-2xl font-black tracking-[-0.03em]">Multidimensional Quantum Walks, Recursion, and Quantum Divide &amp; Conquer</div>
+                  </div>
+                </div>
+
+                <div class="grid gap-4 border-b border-[#1b1614] py-6 md:grid-cols-12">
+                  <div class="font-black text-[#7b0008] md:col-span-2">Sep 2023</div>
+                  <div class="md:col-span-10">
+                    <div class="text-xs font-black uppercase tracking-[0.18em] text-[#d99383]">European Symposium on Algorithms (ESA 2023), Amsterdam</div>
+                    <div class="mt-2 text-2xl font-black tracking-[-0.03em]">(No) Quantum Space-Time Tradeoff for USTCON</div>
+                  </div>
+                </div>
+
+                <div class="grid gap-4 border-b border-[#1b1614] py-6 md:grid-cols-12">
+                  <div class="font-black text-[#7b0008] md:col-span-2">Jun 2023</div>
+                  <div class="md:col-span-10">
+                    <div class="text-xs font-black uppercase tracking-[0.18em] text-[#d99383]">Quantum Computation &amp; Optimization Workshop (QOPT 2023), Berlin</div>
+                    <div class="mt-2 text-2xl font-black tracking-[-0.03em]">(No) Quantum Space-Time Tradeoff for USTCON</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Teaching -->
+      <section id="teaching" class="border-y border-[#d99383]/60 bg-[#a99d00] py-20">
+        <div class="mx-auto max-w-7xl px-5 sm:px-8">
+          <p class="text-xs font-black uppercase tracking-[0.28em] text-[#f5dfc4]">Courses & supervision</p>
+          <h2 class="mt-2 text-[clamp(4rem,11vw,8rem)] font-black uppercase leading-[0.82] tracking-[-0.075em] text-[#f5dfc4]">Teaching</h2>
+
+          <ul class="mt-12 grid grid-cols-1 border-l border-t border-[#1b1614] sm:grid-cols-2 lg:grid-cols-3">
+            <li class="border-b border-r border-[#1b1614] bg-[#f5dfc4] p-5 transition hover:-translate-y-1 hover:shadow-[6px_6px_0_#1b1614]">
+              <div class="text-xl font-black tracking-[-0.03em]">Bachelor Thesis Supervision, Quantum Algorithms</div>
+              <div class="mt-3 text-sm font-bold text-[#6d5752]">Jan–Jun 2025 · University of Amsterdam</div>
+            </li>
+            <li class="border-b border-r border-[#1b1614] bg-[#f4a6bd] p-5 transition hover:-translate-y-1 hover:shadow-[6px_6px_0_#1b1614]">
+              <div class="text-xl font-black tracking-[-0.03em]">Quantum Quest</div>
+              <div class="mt-3 text-sm font-bold text-[#6d5752]">Nov–Dec 2023 · University of Amsterdam</div>
+            </li>
+            <li class="border-b border-r border-[#1b1614] bg-[#f5dfc4] p-5 transition hover:-translate-y-1 hover:shadow-[6px_6px_0_#1b1614]">
+              <div class="text-xl font-black tracking-[-0.03em]">Information Theory</div>
+              <div class="mt-3 text-sm font-bold text-[#6d5752]">Nov 2022 – Jan 2023 · University of Amsterdam</div>
+            </li>
+            <li class="border-b border-r border-[#1b1614] bg-[#f5dfc4] p-5 transition hover:-translate-y-1 hover:shadow-[6px_6px_0_#1b1614]">
+              <div class="text-xl font-black tracking-[-0.03em]">Second-Year Project Supervision, Quantum Algorithms</div>
+              <div class="mt-3 text-sm font-bold text-[#6d5752]">Feb–June 2022 · University of Amsterdam</div>
+            </li>
+            <li class="border-b border-r border-[#1b1614] bg-[#7b0008] p-5 text-[#f5dfc4] transition hover:-translate-y-1 hover:shadow-[6px_6px_0_#1b1614]">
+              <div class="text-xl font-black tracking-[-0.03em]">Quantum Computing</div>
+              <div class="mt-3 text-sm font-bold text-[#f5dfc4]/70">Feb–June 2022 · University of Amsterdam</div>
+            </li>
+            <li class="border-b border-r border-[#1b1614] bg-[#f5dfc4] p-5 transition hover:-translate-y-1 hover:shadow-[6px_6px_0_#1b1614]">
+              <div class="text-xl font-black tracking-[-0.03em]">Introduction to Quantum Algorithms</div>
+              <div class="mt-3 text-sm font-bold text-[#6d5752]">Feb–June 2021 · University of Tartu</div>
+            </li>
+            <li class="border-b border-r border-[#1b1614] bg-[#5bcb6b] p-5 transition hover:-translate-y-1 hover:shadow-[6px_6px_0_#1b1614]">
+              <div class="text-xl font-black tracking-[-0.03em]">Introduction to Quantum Computing</div>
+              <div class="mt-3 text-sm font-bold text-[#29492d]">Sep 2020 – Jan 2021 · University of Tartu</div>
+            </li>
+            <li class="border-b border-r border-[#1b1614] bg-[#f5dfc4] p-5 transition hover:-translate-y-1 hover:shadow-[6px_6px_0_#1b1614]">
+              <div class="text-xl font-black tracking-[-0.03em]">Design and Analysis of Algorithms</div>
+              <div class="mt-3 text-sm font-bold text-[#6d5752]">Sep 2020 – Jan 2021 · University of Tartu</div>
+            </li>
+            <li class="border-b border-r border-[#1b1614] bg-[#f5dfc4] p-5 transition hover:-translate-y-1 hover:shadow-[6px_6px_0_#1b1614]">
+              <div class="text-xl font-black tracking-[-0.03em]">Introduction to Theoretical Computer Science</div>
+              <div class="mt-3 text-sm font-bold text-[#6d5752]">Feb–June 2020 · University of Tartu</div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <footer id="contact" class="bg-[#f5dfc4] py-20">
+        <div class="mx-auto max-w-7xl px-5 sm:px-8">
+          <div class="border-t border-[#1b1614] pt-10">
+            <p class="text-xs font-black uppercase tracking-[0.28em] text-[#7b0008]">Contact</p>
+            <h2 class="mt-2 text-[clamp(4rem,10vw,8rem)] font-black uppercase leading-[0.82] tracking-[-0.075em] text-[#d99383]">Let’s talk.</h2>
+            <p class="mt-6 max-w-2xl text-lg font-semibold text-[#443734]">
+              Reach out for collaborations, talks, or teaching.
+            </p>
+
+            <div class="mt-8 grid max-w-2xl border border-[#1b1614] bg-[#f1caaa] sm:grid-cols-[auto_1fr]">
+              <div class="border-b border-[#1b1614] px-5 py-3 text-xs font-black uppercase tracking-[0.2em] text-[#7b0008] sm:border-b-0 sm:border-r">
+                Email
+              </div>
+              <a
+                href="mailto:galina.pass@cwi.nl"
+                class="focusable block bg-[#7b0008] px-5 py-3 text-xs font-black uppercase tracking-[0.18em] text-[#f5dfc4] transition hover:-translate-y-1 hover:bg-[#1b1614] hover:shadow-[6px_6px_0_#1b1614]"
+              >galina.pass@cwi.nl</a>
+            </div>
+          </div>
+
+          <div class="mt-16 flex justify-between border-t border-[#1b1614] pt-6 text-xs font-black uppercase tracking-[0.2em] text-[#d99383]">
+            <span>© 2026 Galina Pass</span>
+            <span>Quantum algorithms · space-bounded complexity · quantum walks</span>
+          </div>
+        </div>
+      </footer>
     </main>
   </body>
 </html>
